@@ -4,7 +4,7 @@ class TodoInput extends Component {
     render() { 
         return ( 
             <div> 
-                <input/>
+                <h3>Todo input</h3>
             </div>
          );
     }
