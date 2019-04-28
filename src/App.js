@@ -43,7 +43,7 @@ handleEdit = (id) => {
 
 
   render() { 
-  
+ 
     return ( 
     <div>
          <div className='container'>
@@ -52,9 +52,10 @@ handleEdit = (id) => {
                   <h3 className='text-capitalize text-center'>Todo Input</h3>
 
                   <TodoInput 
-                  item={this.state.items} 
+                  item={this.state.item} 
                   handleChange ={this.handleChange}
-                  edit={this.state.editItem}/>
+                  edit={this.state.editItem}
+                  handleSubmit ={this.handleSubmit}/>
 
                   <TodoList
                   items={this.state.items}
