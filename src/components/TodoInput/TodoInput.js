@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 class TodoInput extends Component {
     
     render() { 
-        console.log(this.props.item)
         //DESTRUCTURING
   const {item, handleChange, handleSubmit, edit} = this.props
         
