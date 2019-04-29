@@ -82,6 +82,7 @@ handleEdit = (id) => {
             <div className='row'>
               <div className='col-10 mx-auto col-md-8 mt-5'>
                   <h3 className='text-capitalize text-center'>Take Notes and never forget</h3>
+                  <h3 className='text-capitalize text-center'>Time: {new Date().toLocaleTimeString()}</h3>
                  <hr/>
                   <TodoInput 
                   item={this.state.item} 
