@@ -7,7 +7,7 @@ class TodoList extends Component {
         const {items, clearList, handleDelete, handleEdit} = this.props
         return ( 
             <ul className='list-grpup my-5'>
-                <h3 className='text-capitalize text-center' >Todo List</h3>
+                <h3 className='text-center'>Your total todo is <span class="badge badge-secondary">{items.length}</span></h3>
                 <hr/>
                 {items.map((item) => {
                     return (

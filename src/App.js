@@ -1,8 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './index.css'
+
 import uuid from 'uuid';
 import TodoInput from './components/TodoInput/TodoInput';
 import TodoList from './components/TodoList/TodoList';
+import AuthorNotes from './components/AuthorNotes/AuthorNotes'
 
 
 class App extends React.Component {
@@ -78,8 +81,8 @@ handleEdit = (id) => {
          <div className='container'>
             <div className='row'>
               <div className='col-10 mx-auto col-md-8 mt-5'>
-                  <h3 className='text-capitalize text-center'>Todo Input</h3>
-
+                  <h3 className='text-capitalize text-center'>Take Notes and never forget</h3>
+                 <hr/>
                   <TodoInput 
                   item={this.state.item} 
                   handleChange ={this.handleChange}
@@ -92,7 +95,9 @@ handleEdit = (id) => {
                   handleDelete={this.handleDelete}
                   handleEdit={this.handleEdit}
                   />
-              </div>     
+
+              </div>  
+        
             </div>
           </div>
     </div>
