@@ -3,7 +3,7 @@ class TodoInput extends Component {
     
     render() { 
         //DESTRUCTURING
-  const {item, handleChange, handleSubmit, edit} = this.props
+  const {item, handleChange, handleSubmit, editItem} = this.props
         
         return ( 
           
@@ -23,11 +23,10 @@ class TodoInput extends Component {
                   onChange={handleChange}
                 />
               </div>
-              <button
+              <button  disabled={item?false: true}
                 type="submit"
-                className="btn btn-block btn-primary mt-3 text-uppercase"
-              >
-                add item
+                className={editItem? "btn btn-block btn-warning mt-3 text-uppercase": "btn btn-block btn-danger mt-3 text-uppercase"}>
+                {editItem? 'Edit Todo': 'Add Todo'}
               </button>
             </form>
           </div>

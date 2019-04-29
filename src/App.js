@@ -6,7 +6,7 @@ import TodoList from './components/TodoList/TodoList';
 
 
 class App extends React.Component {
-  state ={
+  state = {
     items: [],
     id: uuid(),
     item: '', 
@@ -24,8 +24,7 @@ handleSubmit = (e) => {
   e.preventDefault()
   const newItem = {
     id: this.state.id,
-    title: this.state.item,
-    name:'Emmanuel'
+    title: this.state.item
   }
   const updatedItems = [...this.state.items, newItem ]
   this.setState({
@@ -33,19 +32,41 @@ handleSubmit = (e) => {
     item: '',
     id: uuid(), 
     editItem: false
-  },() => console.log(this.state)) 
+  }) 
 }
 
 clearList = () => {
-  console.log('Clear list')
+  this.setState({
+    items: []
+  })
 }
 
 handleDelete = (id) => {
-   console.log(`handle delete' ${id}`)
+   const filteredItems = this.state.items.filter((item) => {
+     return item.id !== id
+   })
+
+   this.setState({
+     items: filteredItems
+   })
 }
 
 handleEdit = (id) => {
-  console.log(`handle edit ${id}`)
+  
+  const filteredItems = this.state.items.filter((item) => {
+    return item.id !== id
+  })
+  
+  const selectedItem = this.state.items.find((item) => {
+    return item.id === id
+  })
+
+  this.setState({
+    items: filteredItems,
+    item: selectedItem.title,
+    editItem: true
+  })
+  console.log(selectedItem.title)
 }
 
 
@@ -53,7 +74,7 @@ handleEdit = (id) => {
   render() { 
  
     return ( 
-    <div>
+    <div className='bg bg-warning'>
          <div className='container'>
             <div className='row'>
               <div className='col-10 mx-auto col-md-8 mt-5'>
@@ -62,7 +83,7 @@ handleEdit = (id) => {
                   <TodoInput 
                   item={this.state.item} 
                   handleChange ={this.handleChange}
-                  edit={this.state.editItem}
+                  editItem={this.state.editItem}
                   handleSubmit ={this.handleSubmit}/>
 
                   <TodoList
